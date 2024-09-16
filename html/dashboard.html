@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>Dashboard</title>
+    <style>
+        .modal-backdrop {
+            background-color: transparent;
+        }
+        .table-test table,tr,td,th{border-collapse: collapse;border:1px solid;}
+    </style>
+</head>
+
+<body>
+    <header class=" bg-grey">
+        <nav class="navbar navbar-expand-lg p-0">
+            <a class="navbar-brand nav-logo" href="#"><img class="logo" src="images/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="javascript:viod(0)"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:viod(0)"><i class="fa fa-history fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item position-relative search-field">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="">
+                        </div>
+                        <img class="search" src="images/search.png">
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <span>Trial expires in 13 days</span> <a href="javascript:void(0)" class="clr-blue">Upgrade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="thebirdseye">The Birds Eye</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="referearn"><i class="fa fa-users fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="notification"><i class="fa fa-bell fa-lg" aria-hidden="true"></i> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="settings"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)"><i class="fa fa-question-circle fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="d-flex">
+            <div class="side--menu bg-grey ">
+                <ul class="list-unstyled accordion" id="accordionExample">
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-tachometer"></i>Dashboard</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-shopping-basket"></i>Items</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-university"></i>Banking</a>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingOne" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-shopping-cart"></i>Sales <img src="images/arrow.png"></a>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingTwo" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-shopping-bag"></i>Purchases<img src="images/arrow.png"></a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingThree" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>Time Tracking <img src="images/arrow.png"></a>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingFour" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-user"></i></i>Accountant<img src="images/arrow.png"></a>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-line-chart" aria-hidden="true"></i> Reports</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-folder-open"></i> Documents</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-money" aria-hidden="true"></i> Payroll</a>
+                    </li>
+                </ul>
+                <div class="close-menu">
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+            </div>
+            <div class="main--menu">
+                <div class="table-test">
+                    <table>
+                        <tr>
+                            <th>namer</th>
+                            <th>namer2</th>
+                        </tr>
+                        <tr>
+                            <td>value</td>
+                             <td>value</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Birds Eye -->
+    <div class="modal-card" id="thebirdseye">
+        <div class="close-modal-card">
+            <img src="images/close.png">
+        </div>
+        <div class="modal-card-head text-center">
+            <img class="dp" src="images/dp.png">
+            <h6 class="pt-2">accounts</h6>
+            <p class="user-id pt-1">User ID: 60003651303</p>
+            <p class="user-mail pt-1">accounts@thebirdseye.in</p>
+            <div class="d-flex account-signout justify-content-center pt-2">
+                <p><a class="my--account" href="#">My Account</a></p>
+                <span class="straight-line">|</span>
+                <p><a class="sign--out" href="#">Sign Out</a></p>
+            </div>
+        </div>
+        <div class="d-flex py-3 px-3 bdr-btm">
+            <p class="mr-auto text-grey">MY ORGANIZATIONS</p>
+            <p class="text-blue"><i class="fa fa-cog text-blue" aria-hidden="true"></i> Manage</p>
+        </div>
+        <div class="d-flex px-3 mt-2 py-2">
+            <div class="list-details">
+                <p>The Birds Eye</p>
+                <p class="org-id">Organization ID: 60008466374</p>
+                <p class="trail">TRIAL</p>
+            </div>
+            <div>
+                <img src="">
+            </div>
+        </div>
+    </div>
+    <!-- The Birds Eye -->
+    <!-- Refer and Earn -->
+    <div class="modal-card" id="referearn">
+        <div class="close-modal-card">
+            <img src="images/close.png">
+        </div>
+        <div class="modal-card-head text-center">
+            <img src="images/referral.svg">
+            <h2 class="pt-3 text-dark-blue">Know people who would love Zoho Books?</h2>
+            <p class="red-refer text-red my-2">Refer now and earn 15% of the subscription payment as Zoho wallet credits</p>
+            <div class="mt-4">
+                <a href="#" class="primary-btn ">Refer and Earn</a>
+            </div>
+        </div>
+        <div class="referearn-body">
+            <h6>HOW DO YOU REFER & EARN?</h6>
+            <p class="pt-4">Refer your friends and once they start using Zoho Books, you will get <b class="text-red">15%</b> of their subscription payment to Zoho as your wallet credit. Also, your friend will earn <b class="text-red">$100</b> as wallet credit for subscribing
+                through referral. You can refer as many friends as you wish.</p>
+            <p class="pt-3">The amount will be credited to your wallet after 90 days, if the friend you referred continues to stay as a paying customer.</p>
+            <p class="pt-3">*Terms and Conditions apply</p>
+        </div>
+
+    </div>
+    <!-- Refer and Earn -->
+    <!-- Notification -->
+    <div class="modal-card" id="notification">
+        <div class="d-flex">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">.1..</div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">.2..</div>
+        </div>
+    </div>
+    <!-- Notification -->
+    <!-- Settings -->
+    <div class="modal-card" id="settings">
+        <div class="notify-head">
+            <div class="d-flex">
+                <h6 class="mr-auto">Settings</h6>
+                <div class="close-modal-card">
+                    <img src="images/close.png">
+                </div>
+            </div>
+            <div class="form-group mb-0 mt-3 position-relative">
+                <input type="text" class="form-control" name="" placeholder="Search Settings">
+                <img class="search" src="images/search.png">
+            </div>
+        </div>
+        <ul class="list-unstyled search__list my-3">
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Organization Profile</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Opening Balances</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Users & Roles</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Branches</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Preferences</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Currencies</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Taxes</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Reporting Tags</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Templates</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Emails</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>SMS Notifications</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Reminders</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Automation</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Developer Space</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Online Payments</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Web Tabs</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Integrations</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Data Backup</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Subscription</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Settings -->
+    <!-- Help and Support -->
+    <div class="modal-card" id="helpsupport">
+        <div class="notify-head helpsupport-head">
+            <div class="d-flex">
+                <h6 class="mr-auto">Help & Support</h6>
+                <div class="close-modal-card">
+                    <img src="images/close.png">
+                </div>
+            </div>
+            <div class="form-group mb-0 mt-3 position-relative">
+                <input type="text" class="form-control" name="" placeholder="Search Settings">
+                <img class="search" src="images/search.png">
+            </div>
+        </div>
+        <ul class="list-unstyled search__list my-3">
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Organization Profile</p>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- Help and Support -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+
+</html>

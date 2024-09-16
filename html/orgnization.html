@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/select2.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>Orgnization</title>
+    <style>
+        /*.org-1:after{content: "|";}*/
+        .org-border{border-bottom:1px solid #eee; padding-bottom: 30px;    position: fixed;
+    background-color: #fff;
+    right: 0px;
+    left: 210px;
+    transition: .3s ease-in-out;z-index: 10000;}
+        img{
+  max-width:100px;
+}
+.org-sec-1 input[type=file]{
+padding:10px;
+position: absolute;
+z-index: 10;
+border: 0px !important;
+}
+#html_btn {
+  display: none;
+}
+#blah{border: 1px dashed #ddd;padding: 20px 20px;}
+span.btn-rmv1{color: #2485e8;}
+.bg-pink{background-color: #fff4e7; padding: 15px 15px;}
+select.select--{width: 100%;}
+.arrow-image{position: absolute;    right: 7px;
+    top: 10px;}
+.bg-gray--{background-color: #f5f5f5;}
+.org-td .table td{border:0px ;}
+td.th-2{padding:20px!important;padding-left: 0px !important;}
+.new-row-values a{padding-left:  128px;}
+.border-org-down{border-top: 1px solid #3333;}
+input{height: 32px !important;}
+.org-sec-1{margin-top: 100px;}
+select{height: 32px !important;}
+.select2-selection{height: 32px !important;}
+
+    </style>
+</head>
+
+<body>
+    <header class=" bg-grey">
+        <nav class="navbar navbar-expand-lg p-0">
+            <a class="navbar-brand nav-logo" href="#"><img class="logo" src="images/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="javascript:viod(0)"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:viod(0)"><i class="fa fa-history fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item position-relative search-field">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="">
+                        </div>
+                        <img class="search" src="images/search.png">
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <span>Trial expires in 13 days</span> <a href="javascript:void(0)" class="clr-blue">Upgrade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="thebirdseye">The Birds Eye</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="referearn"><i class="fa fa-users fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="notification"><i class="fa fa-bell fa-lg" aria-hidden="true"></i> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="settings"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)"><i class="fa fa-question-circle fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="d-flex">
+            <div class="side--menu bg-grey ">
+                <ul class="list-unstyled accordion" id="accordionExample">
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-tachometer"></i>Dashboard</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-shopping-basket"></i>Items</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-university"></i>Banking</a>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingOne" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-shopping-cart"></i>Sales <img src="images/arrow.png"></a>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingTwo" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-shopping-bag"></i>Purchases<img src="images/arrow.png"></a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingThree" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>Time Tracking <img src="images/arrow.png"></a>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingFour" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-user"></i></i>Accountant<img src="images/arrow.png"></a>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-line-chart" aria-hidden="true"></i> Reports</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-folder-open"></i> Documents</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-money" aria-hidden="true"></i> Payroll</a>
+                    </li>
+                </ul>
+                <div class="close-menu">
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+            </div>
+            <div class="main--menu ">
+              <div class="d-flex justify-content-between org-border p-3">
+                  <div class="d-flex">
+                    <div class="org-1 pr-2 align-self-center">
+                      <h3>Organization Profile    |</h3>    
+                    </div>
+                    <div class="align-self-center">
+                        ID:60008466374
+                    </div>
+                  </div>
+                  <div>  
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Set up your organization
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Multi-currency with Zoho Books</a>
+                      </div>
+                    </div>
+                  </div>
+              </div>  
+               <div class="col-md-12 position-relative org-sec-1">
+                <div class="col-md-10 pt-3 pb-3">
+                    <div class="row">
+                        <div class="col-md-2">
+                          <p>Your Logo</p>  
+                        </div>
+                        <div class="col-md-4">
+                            <input type='file' onchange="readURL(this);" / placeholder="Uplode Logo" id="html_btn">
+                            <img id="blah" class="position-relative new_Btn" src="" alt="your image" />
+                        </div>
+                        <div class="col-md-6">
+                          <p>This logo will appear on the documents (estimates, invoices, etc.) that are created.</p>  
+                          <span>Preferred Image Size: 240px x 240px @ 72 DPI Maximum size of 1MB.</span>
+                          <span type="button" id="removeImage1"  class="btn-rmv1" />Remove Logo </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <form>
+                      <div class="form-row mb-3">
+                        <div class="form-group col-md-2 align-self-center mb-0">
+                          <label for="inputname" class="mb-0">Organization Name*</label>
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                          <input type="text" class="form-control" id="inputname">
+                        </div>
+                      </div>
+                      <div class="form-row mb-3">
+                        <div class="form-group col-md-2 align-self-center mb-0">
+                          <label for="inputname" class="mb-0"  data-toggle="tooltip" data-placement="top" title="Select your ">Industry*</label>
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                           <div class="form-group  mb-0">
+                                <select name="area" id="area" class="form-control  js-example-single select--" >
+                                    <option value="">Agency house</option>
+                                    <option value="1">main root</option>
+                                    <option value="2">jain</option>
+                                    <option value="3">terms</option>
+                                    <option value="4">unifor</option>
+                                    <option value="5">unifor</option>
+                                    <option value="6">unifor</option>
+                                </select>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-row mb-3">
+                        <div class="form-group col-md-2 align-self-center mb-0">
+                          <label for="inputname" class="mb-0"  data-toggle="tooltip" data-placement="top" title="Select your ">Industry*</label>
+                        </div>
+                        <div class="form-group col-md-6 mb-0" >
+                           <div class="form-group  mb-0" >
+                                <select name="area" id="area" class="form-control  js-example-single " disabled >
+                                    <option value="">Agency house</option>
+                                    <option value="1">main root</option>
+                                    <option value="2">jain</option>
+                                    <option value="3">terms</option>
+                                    <option value="4">unifor</option>
+                                    <option value="5">unifor</option>
+                                    <option value="6">unifor</option>
+                                </select>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-row mb-3">
+                        <div class="form-group col-md-2 align-self-center mb-0">
+                          <label for="inputname" class="mb-0">Company Address</label>
+                        </div>
+                        <div class="form-group col-md-10">
+                          <input type="text" class="form-control" id="inputname">
+                        </div>
+                         <div class="form-group col-md-2 align-self-center mb-0">
+                          <label for="inputname" class="mb-0"></label>
+                        </div>
+                        <div class="form-group col-md-10 ">
+                          <input type="text" class="form-control" id="inputname">
+                        </div>
+                         <div class="form-group col-md-2 align-self-center mb-0">
+                          <label for="inputname" class="mb-0"></label>
+                        </div>
+                        <div class="form-group col-md-10">
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <input type="text" class="form-control" id="inputname" placeholder="City">
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="form-group  mb-0" >
+                                        <select name="area" id="area" class="form-control  js-example-single " >
+                                            <option value="">Agency house</option>
+                                            <option value="1">main root</option>
+                                            <option value="2">jain</option>
+                                            <option value="3">terms</option>
+                                            <option value="4">unifor</option>
+                                            <option value="5">unifor</option>
+                                            <option value="6">unifor</option>
+                                        </select>
+                                    </div>  
+                              </div>
+                              <div class="col-md-4">
+                                  <input type="text" class="form-control" id="inputZip" placeholder="Zip/Postal Code">
+                              </div>
+                          </div>
+                        </div>
+                          <div class="form-group col-md-2 align-self-center mb-0">
+                          <label for="inputname" class="mb-0"></label>
+                        </div>
+                        <div class="form-group col-md-10">
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <input type="number" class="form-control" id="inputname" placeholder="Phone">
+                              </div>
+                              <div class="col-md-4">
+                                    <input type="text" class="form-control" id="" placeholder="Fax">
+                              </div>
+                              <div class="col-md-4">
+                                  <input type="text" class="form-control" id="inputZip" placeholder="Website">
+                              </div>
+                          </div>
+                        </div>
+                         <div class="form-group col-md-2 align-self-center mb-0">
+                          <label for="inputname" class="mb-0"></label>
+                        </div>
+                        <div class="form-group col-md-10">
+                          <div class="custom-control custom-checkbox align-self-center">
+                              <input type="checkbox" class="custom-control-input toggle-1" id="customCheck1">
+                              <label class="custom-control-label mb-0 pb-0 align-self-center" for="customCheck1">Would you like to add a separate address for receiving payments?</label>
+                            </div>
+                        </div>
+                      </div>
+                       <div class="form-row text-box-- d-none">
+                            <div class="form-group col-md-2 align-self-center mb-0">
+                         <label for="exampleFormControlTextarea1">Address To Receive Payment</label>
+                        </div>
+                        <div class="form-group  col-md-6 ">
+                            
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div> 
+                        </div>
+                        <div class="form-row">
+                             <div class="form-group col-md-2  mb-0">
+                          <label for="inputname" class="mb-0">Primary Contact</label>
+                        </div>
+                        <div class="form-group col-md-10">
+                          <div class="row">
+                            <div class="col-md-6" style="border-right: 1px solid #ddd;">
+                               <p class="text-muted mb-md-3">SENDER</p> 
+                               <h6>accounts</h6>
+                               <p>(accounts@thebirdseye.in)</p>
+                            </div>  
+                            <div class="col-md-6">
+                                <p class="text-muted mb-md-3">EMAILS ARE SENT THROUGH</p>
+                                  <h6>Email address of Zoho Books</h6>
+                               <p>(message-service@sender.zoho-books.in)</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-2  mb-0">
+                          <label for="inputname" class="mb-0"></label>
+                        </div>
+                        <div class="form-group col-md-10">
+                          <div class="bg-pink ">
+                             <div class="d-flex">
+                                 <div class="pr-2">
+                                     <i class="fa fa-exclamation-circle fx-3" aria-hidden="true" style="color: #ffa500;"></i>
+                                 </div>
+                                 <div>
+                                     <p>Your primary contact's email address belongs to an unauthenticated domain. So, emails will be sent from message-service@sender.zoho-books.in to prevent them from landing in the Spam folder. Authenticate the domain to send emails from your primary contact's email address.<a href="#">  Authenticate Now</a></p>
+                                 </div>
+                             </div> 
+                          </div>
+                          <div class="pt-2">
+                             <a href="#">Configure Email Preferences <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> 
+                          </div>
+                        </div>
+                        <div class="form-group col-md-2   align-self-center">
+                          <label for="inputname" class="mb-0">Fiscal Year</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group  mb-0" >
+                                <select name="area" id="area" class="form-control  js-example-single " >
+                                    <option value="">Agency house</option>
+                                    <option value="1">main root</option>
+                                    <option value="2">jain</option>
+                                    <option value="3">terms</option>
+                                    <option value="4">unifor</option>
+                                    <option value="5">unifor</option>
+                                    <option value="6">unifor</option>
+                                </select>
+                            </div> 
+                        </div>
+                        </div>
+                        <div class="form-row">
+                             <div class="form-group col-md-2">
+                          <label for="inputname" class="mb-0">Report Basis</label>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <div class="form-group  mb-0" >
+                               <div class="custom-control custom-radio">
+                                  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                  <label class="custom-control-label" for="customRadio1">Accrual (you owe tax as of invoice date)</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                  <label class="custom-control-label" for="customRadio2">Cash (you owe tax upon payment receipt)</label>
+                                </div>
+                            </div> 
+                        </div>
+                          <div class="form-group col-md-2 align-self-center">
+                          <label for="inputname" class="mb-0">Time Zone</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group  mb-0" >
+                               <select name="area" id="area" class="form-control  js-example-single "  disabled>
+                                    <option value="">Agency house</option>
+                                    <option value="1">main root</option>
+                                    <option value="2">jain</option>
+                                    <option value="3">terms</option>
+                                    <option value="4">unifor</option>
+                                    <option value="5">unifor</option>
+                                    <option value="6">unifor</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        </div>
+                        <div class="form-row">
+                             <div class="form-group col-md-2 align-self-center">
+                          <label for="inputname" class="mb-0 ">Time Zone</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group  mb-0" >
+                               <select name="area" id="area" class="form-control  js-example-single " >
+                                    <option value="">Agency house</option>
+                                    <option value="1">main root</option>
+                                    <option value="2">jain</option>
+                                    <option value="3">terms</option>
+                                    <option value="4">unifor</option>
+                                    <option value="5">unifor</option>
+                                    <option value="6">unifor</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="form-group col-md-4">
+                           <select class="" style="height: 36px; width: 50px; border:1px solid #ddd;border-radius: 5px;">
+                               <option>/</option>
+                               <option>.</option>
+                               <option>-</option>
+                           </select> 
+                        </div>
+                        </div>
+                        <div class="form-row">
+                        <div class="form-group col-md-2 ">
+                            <div class="mb-4">
+                               <label for="inputname" class="mb-0 ">Company ID</label> 
+                            </div>
+                             <div class="pt-3">
+                               <label for="inputname" class="mb-0 ">Tax ID</label> 
+                            </div>
+                          
+                        </div>
+                        <div class="form-group col-md-2">
+                            <div class="form-group  mb-3 position-relative" >
+                               <select name="area" id="area" class="form-control  js-example-single"  multiple >
+                                    <option value="" active>Agency house</option>
+                                    <option value="1">main root</option>
+                                    <option value="2">jain</option>
+                                    <option value="3">terms</option>
+                                    <option value="4">unifor</option>
+                                    <option value="5">unifor</option>
+                                    <option value="6">unifor</option>
+                                </select>
+                                <img class="arrow-image" src="images/acc-down.png" height="10px" height="10px" >
+                            </div> 
+                             <div class="form-group  mb-0 position-relative" >
+                               <select name="area" id="area" class="form-control  js-example-single"  multiple >
+                                    <option value="" active>Agency house</option>
+                                    <option value="1">main root</option>
+                                    <option value="2">jain</option>
+                                    <option value="3">terms</option>
+                                    <option value="4">unifor</option>
+                                    <option value="5">unifor</option>
+                                    <option value="6">unifor</option>
+                                </select>
+                                <img class="arrow-image" src="images/acc-down.png" height="10px" height="10px" >
+                            </div> 
+                        </div>
+                        <div class="form-group col-md-3" >
+                            <div class="mb-3">
+                               <input type="text" class="form-control">  
+                            </div>
+                          <div>
+                               <input type="text" class="form-control">  
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                           <div class="bg-gray-- p-3">
+                               <p class="text-muted">You can have Company ID, Tax ID and Additional Fields show up on your PDF by inserting the required placeholders in your 'Address Format' under<a href="#"> Settings -> Preferences -> General</a></p>
+                           </div> 
+                        </div>
+                        </div>
+
+                            <div class="col-md-8 p-0">
+                              <div class="table-responsive org-td">
+                                <table id="test-table" class="table table-condensed" style="border:0px;">
+                                  
+                                  <tbody id="test-body">
+                                    <tr id="row0">
+                                      <td class="th-2 align-self-center">
+                                      Additional fields
+                                      </td>
+                                      <td>
+                                        <input name='from_value0' type='text' class='form-control' placeholder="label" />
+                                      </td>
+                                      <td>
+                                        <input name='to_value0' type='text' class='form-control input-md' placeholder="value" />
+                                      </td>
+                                     
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <div class=" new-row-values mb-3">
+                                   <a href="#" id='add-row-1'>Add additonal fields</a> 
+                                </div>
+                               <!--  <input id='add-row-1' class='btn btn-primary' type='button' value='Add' /> -->
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-row border-org-down">
+                       <div class="col-md-2">
+                           
+                       </div>
+                       <div class="col-md-9 mb-5 mt-3">
+                           <div class="d-flex justify-content-between">
+                               <div>
+                                 <button class="secoundry-btn " type="submit"> Save</button>
+                               </div>
+                               <div class="align-self-center">
+                                  <a href="#" style="text-decoration: underline;color: #000;"> Privacy policy</a>
+                               </div>
+                           </div>
+                       </div>
+                      </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <!-- The Birds Eye -->
+    <div class="modal-card" id="thebirdseye">
+        <div class="close-modal-card">
+            <img src="images/close.png">
+        </div>
+        <div class="modal-card-head text-center">
+            <img class="dp" src="images/dp.png">
+            <h6 class="pt-2">accounts</h6>
+            <p class="user-id pt-1">User ID: 60003651303</p>
+            <p class="user-mail pt-1">accounts@thebirdseye.in</p>
+            <div class="d-flex account-signout justify-content-center pt-2">
+                <p><a class="my--account" href="#">My Account</a></p>
+                <span class="straight-line">|</span>
+                <p><a class="sign--out" href="#">Sign Out</a></p>
+            </div>
+        </div>
+        <div class="d-flex py-3 px-3 bdr-btm">
+            <p class="mr-auto text-grey">MY ORGANIZATIONS</p>
+            <p class="text-blue"><i class="fa fa-cog text-blue" aria-hidden="true"></i> Manage</p>
+        </div>
+        <div class="d-flex px-3 mt-2 py-2">
+            <div class="list-details">
+                <p>The Birds Eye</p>
+                <p class="org-id">Organization ID: 60008466374</p>
+                <p class="trail">TRIAL</p>
+            </div>
+            <div>
+                <img src="">
+            </div>
+        </div>
+    </div>
+    <!-- The Birds Eye -->
+    <!-- Refer and Earn -->
+    <div class="modal-card" id="referearn">
+        <div class="close-modal-card">
+            <img src="images/close.png">
+        </div>
+        <div class="modal-card-head text-center">
+            <img src="images/referral.svg">
+            <h2 class="pt-3 text-dark-blue">Know people who would love Zoho Books?</h2>
+            <p class="red-refer text-red my-2">Refer now and earn 15% of the subscription payment as Zoho wallet credits</p>
+            <div class="mt-4">
+                <a href="#" class="primary-btn ">Refer and Earn</a>
+            </div>
+        </div>
+        <div class="referearn-body">
+            <h6>HOW DO YOU REFER & EARN?</h6>
+            <p class="pt-4">Refer your friends and once they start using Zoho Books, you will get <b class="text-red">15%</b> of their subscription payment to Zoho as your wallet credit. Also, your friend will earn <b class="text-red">$100</b> as wallet credit for subscribing
+                through referral. You can refer as many friends as you wish.</p>
+            <p class="pt-3">The amount will be credited to your wallet after 90 days, if the friend you referred continues to stay as a paying customer.</p>
+            <p class="pt-3">*Terms and Conditions apply</p>
+        </div>
+
+    </div>
+    <!-- Refer and Earn -->
+    <!-- Notification -->
+    <div class="modal-card" id="notification">
+        <div class="d-flex">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">.1..</div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">.2..</div>
+        </div>
+    </div>
+    <!-- Notification -->
+    <!-- Settings -->
+    <div class="modal-card" id="settings">
+        <div class="notify-head">
+            <div class="d-flex">
+                <h6 class="mr-auto">Settings</h6>
+                <div class="close-modal-card">
+                    <img src="images/close.png">
+                </div>
+            </div>
+            <div class="form-group mb-0 mt-3 position-relative">
+                <input type="text" class="form-control" name="" placeholder="Search Settings">
+                <img class="search" src="images/search.png">
+            </div>
+        </div>
+        <ul class="list-unstyled search__list my-3">
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Organization Profile</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Opening Balances</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Users & Roles</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Branches</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Preferences</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Currencies</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Taxes</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Reporting Tags</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Templates</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Emails</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>SMS Notifications</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Reminders</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Automation</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Developer Space</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Online Payments</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Web Tabs</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Integrations</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Data Backup</p>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Subscription</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Settings -->
+    <!-- Help and Support -->
+    <div class="modal-card" id="helpsupport">
+        <div class="notify-head helpsupport-head">
+            <div class="d-flex">
+                <h6 class="mr-auto">Help & Support</h6>
+                <div class="close-modal-card">
+                    <img src="images/close.png">
+                </div>
+            </div>
+            <div class="form-group mb-0 mt-3 position-relative">
+                <input type="text" class="form-control" name="" placeholder="Search Settings">
+                <img class="search" src="images/search.png">
+            </div>
+        </div>
+        <ul class="list-unstyled search__list my-3">
+            <li>
+                <a href="#" class="d-flex">
+                    <div><img class="mr-2" src="images/"></div>
+                    <p>Organization Profile</p>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- Help and Support -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src='js/jquery.dataTables.min.js'></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+             function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+<script >
+  $('.toggle-1').change(function(){
+    if($(this).is(":checked")) {
+       
+        $('.text-box--').removeClass("d-none");  
+    } else {
+         $('.text-box--').addClass("d-none");
+        
+    }
+});
+
+</script>
+<script >
+      // Add row
+  var row=1;
+  $(document).on("click", "#add-row-1", function () {
+  var new_row = '<tr id="row' + row + '"><td> </td><td><input name="from_value' + row + '" type="text" class="form-control"  placeholder="label"/></td><td><input name="to_value' + row + '" type="text" class="form-control" placeholder="value" /></td></tr>';
+  $('#test-body').append(new_row);
+  row++;
+  return false;
+  });
+  
+  // Remove criterion
+  $(document).on("click", ".delete-row", function () {
+  //  alert("deleting row#"+row);
+    if(row>1) {
+      $(this).closest('tr').remove();
+      row--;
+    }
+  return false;
+  });
+
+</script>
+<script>
+$('.new_Btn').click(function() {
+  $('#html_btn').click();
+});
+$("#removeImage1").click(function(e) {
+  e.preventDefault();
+  $("#html_btn").val("");
+  $("#blah").attr("src", "");
+    $("#blah").addClass("d-block");
+});
+
+</script>
+
+</body>
+
+</html>

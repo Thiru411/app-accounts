@@ -1,0 +1,1497 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+    <link href="css/select2.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="css/select2.min.css"> -->
+    <link rel="stylesheet" href="css/custom.css">
+    <title>reports</title>
+
+    <style>
+        .reports-text{font-size:1.7rem;font-weight:500;padding-right: 15px;}
+        .main--menu{width:100%;}
+        .config{display:inline-block;color: #2a74be;font-size: 1rem;line-height: 1.6;}
+        .reports-nav{border-bottom: 1px solid #eee;padding: 20px 15px;}
+        .business-text{font-size:1.3rem;font-weight:400;margin-bottom:10px;line-height:1.1;display:inline-block}
+        .business-row{padding: 50px 20px 50px 20px;}
+        .business-img{margin: 0px 0 6px 0;}
+        .span-lis{font-size:13px;line-height:1.6;color: #2a74be;}
+        .business-row li{padding: 10px 0;border-bottom: 1px dashed #e9e9e9;max-width: 250px;}
+        .icon-new{height: 20px; width: 20px;}
+        .business-icon{margin-top: -12px;}
+        .advanced-text{font-size:18px;font-weight: 600;line-height: 1.6;}
+        .zoho-img{border: 1px solid #ddd;border-radius: 6px;float: left;padding: 15px;}
+        .advanced-lis{font-size:13px;line-height:1.6;white-space: nowrap;}
+        .font-li-bold{font-weight:600;}
+        .zoho-btn{text-transform:uppercase;}
+        .advanced{border-top: 1px solid rgba(0,0,0,.1);padding-top:20px;max-width: 1118px;margin-left:20px;}
+        .reports-modal-title{font-size: 1.3rem;line-height: 1.6;font-weight: 400;}
+        .reports-modal .modal-header{background-color: #f5f5f5;}
+        .reports-modal label{padding-top: calc(.375rem + 1px);padding-bottom: calc(.375rem + 1px);margin-bottom: 0;font-size: 13px;line-height: 1.6;font-weight: 400;}
+        .form-option{line-height: 28px;color: #444;border-radius: 2px;padding: 1px 12px;font-size: 13px;}
+        .reports-modal select::-ms-expand {display: none;} 
+        .reports-modal select {-webkit-appearance: none;-moz-appearance: none;appearance: none;} 
+        .select-down-arrow{position:absolute;top: 48px;right: 28px;height:10px;width:10px;}
+        .select-down-arrow1{position:absolute;top: 48px;right: 28px;height:10px;width:10px;}
+        .select-down-arrow:focus{display:none;}
+        .img-reverse{transform: rotate(180deg);}
+        .border-dashed {border-top: 1px dashed #eee;margin:20px 0 20px 0;}
+        .choose{font-weight: 400;font-size: 1.3rem;margin: 10px 0 10px 0;font-weight: 400;line-height: 1.1;}
+        .padd-radio{padding:2px 0 0 0!important;}
+        .padd-check{padding:2px 0 0 0!important;}
+        .mt-6{margin-top: 6px;}
+        .label-style{font-size:13px;line-height:1.6;font-weight:400;margin-bottom: .5rem;}
+        .form-padd{padding: 5px 8px;border-radius: 2px;height: 32px;}
+        .mb-14{margin-bottom:14px;}
+        .highlight-border{border-left: 5px solid #fba800;}
+        .note-padding{padding:0 15px 0 15px;}
+        .note{font-weight:600;}
+        .note-font{font-size:13px;line-height: 1.6;font-weight:400;}
+        .reports-modal .save-btn ,.reports-modal .save-btn :focus {color: rgb(255, 255, 255);background-color: rgb(214, 72, 48);border-color: rgb(214, 72, 48);}
+        .reports-modal .cancel-btn{color: rgb(33, 37, 41);background-color: rgb(220, 220, 220);border-color: rgb(213, 213, 213);}
+        .reports-modal .modal-footer{display:block;}
+        .modal-btn{color:transparent;background-color: transparent;border-color:  transparent;padding:0;}
+        .modal-btn:hover , .modal-btn:focus{color:transparent;background-color: transparent;border-color:  transparent;padding:0;}
+        .reports-search{position:absolute;top:12px;left:26px;}
+        .reports-select .select2-container {width:100%!important;}
+        .preview{background-color: #f8f9fe;border-radius: 20px;max-width: 360px;}
+        .preview-text{font-size:1rem;font-weight:400;line-height: 1.1;}
+        .preview-card h5{font-size:13px;font-weight:400;line-height:1.1;}
+        .basic-font{font-size:16px!important;}
+        .preview-card{padding:20px;}
+        .font-xs{font-size:8px;line-height:1.6;font-weight:400;}
+        .birds-add{display:block!important;}
+        .rep-layout-alternative-columns>tbody>tr>td:nth-child(2n+1) {background-color:#fafafa;}
+        .table-text{font-size: 80%;font-weight:400;line-height:1.6;}
+        .dd-none{display:none!important;}
+        .reports-select option{border:1px solid black;}
+    </style>
+
+  </head>
+  <body>
+    <header class=" bg-grey">
+        <nav class="navbar navbar-expand-lg p-0">
+            <a class="navbar-brand nav-logo" href="#"><img class="logo" src="images/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a href="javascript:viod(0)"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item header-a">
+                  <a href="javascript:viod(0)"><i class="fa fa-history fa-lg" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item position-relative search-field">
+                  <div class="form-group">
+                      <input type="text" class="form-control" name="">
+                  </div>
+                  <img class="search" src="images/search.png">
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <span>Trial expires in 13 days</span> <a href="javascript:void(0)" class="clr-blue">Upgrade</a>
+                </li>
+                <li class="nav-item header-a">
+                  <a href="javascript:void(0)" class="thebirdseye">The Birds Eye</a>
+                </li>
+                <li class="nav-item header-a">
+                  <a href="javascript:void(0)" class="referearn"><i class="fa fa-users fa-lg" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item header-a">
+                  <a href="javascript:void(0)" class="notification"><i class="fa fa-bell fa-lg" aria-hidden="true"></i> </a>
+                </li>
+                <li class="nav-item header-a">
+                  <a href="javascript:void(0)" class="settings"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item header-a">
+                  <a href="javascript:void(0)"><i class="fa fa-question-circle fa-lg" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a href="javascript:void(0)"></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+    <div class="wrapper">
+        <div class="d-flex">
+            <div class="side--menu bg-grey ">
+                <ul class="list-unstyled accordion" id="accordionExample">
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-tachometer"></i>Dashboard</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-shopping-basket"></i>Items</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-university"></i>Banking</a>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex rem-col collapse--  col-arrow sales-trans" id="headingOne" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-shopping-cart"></i>Sales <img src="images/arrow.png" class="rot-img-back arrow-rot">
+                          </a>
+                        <div id="collapseOne" class="collapse sales-coll" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Payments Received <span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Recurring Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Credit Notes<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex rem-col collapse-- pur-col col-arrow sales-trans" id="headingTwo" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-shopping-bag"></i>Purchases<img src="images/arrow.png" class="rot-img-back arrow-rot"></a>
+                        <div id="collapseTwo" class="collapse sales-coll" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Vendors<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Expenses<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Recurring Expenses<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Purchase Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Bills<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Payments Made<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Recurring Bills<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Vendor Credits<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex rem-col collapse-- col-arrow sales-trans" id="headingThree" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>Time Tracking <img src="images/arrow.png" class="rot-img-back arrow-rot"></a>
+                        <div id="collapseThree" class="collapse sales-coll" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Projects<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Timesheet<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex rem-col collapse--  col-arrow sales-trans" id="headingFour" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-user"></i></i>Accountant<img src="images/arrow.png" class="rot-img-back arrow-rot"></a>
+                        <div id="collapseFour" class="collapse sales-coll" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Manual Journals<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Bulk Update<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Currency<br> Adjusments<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Chart of Accounts<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Budgets<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Transation Locking<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-line-chart" aria-hidden="true"></i> Reports</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-folder-open"></i> Documents</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-money" aria-hidden="true"></i> Payroll</a>
+                    </li>
+                </ul>
+                <div class="close-menu accor-close" data-toggle="collapse" >
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+            </div>
+            <div class="main--menu">
+
+                <!--reports code starts below-->
+                    <!--sub-header starts below-->
+                    <div class="row reports-nav">
+                        <div class="col-md-6">
+                             <div class="row">
+                                  <div class="col-md-3">
+                                    <div class=" reports-text">Reports</div>
+                                  </div>
+                                  <div class="col-md-9">
+                                     <div class="ui-widget">
+                                        <form class="form-inline">
+                                            <input id="tags" class="form-control w-100 pl-5 position-relative" type="search" placeholder="Search Reports" aria-label="Search">
+                                            <img src="images/reports-search.png" height="14px" width="14px" class="img-fluid reports-search">
+                                        </form>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="">
+                                <a href="#">
+                                    <!--modal starts below-->
+                                       <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary modal-btn" data-toggle="modal" data-target="#exampleModal">
+                                                <img src="images/settings.png" class="img-fluid" height="20px" width="20px">
+                                                <p class="config ml-1">Configure report layout</p>
+                                            </button>
+                                     <!--modal ends above-->
+                                   
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                    <!--sub-header ends above-->
+                    <div class="row business-row">
+                        <div class="col-md-4">
+                            <img src="images/building.png" class="img-fluid business-icon" height="20px" width="20px">
+                            <h4 class="business-text">Business Overview</h4>
+                            <ul>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Profit and Loss</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Profit and Loss (Schedule III)</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Horizontal Profit and Loss</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Cash Flow Statement</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Balance Sheet</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Horizontal Balance Sheet</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Balance Sheet (Schedule III)</span></span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Business Performance Ratios</span>
+                                       <img src="images/new.png" class="img-fluid icon-new">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <img src="images/shopping-cart.png" class="img-fluid business-icon" height="20px" width="20px">
+                            <h4 class="business-text">Sales</h4>
+                            <ul>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Sales by Customer</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Sales by Item </span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Sales by Sales Person</span></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <img src="images/receive.png" class="img-fluid business-icon" height="20px" width="20px">
+                            <h4 class="business-text">Receivables</h4>
+                            <ul>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Customer Balances</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Aging Summary</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Aging Details</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Invoice Details</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Sales Order Details</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Delivery Challan Details</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Estimate Details</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Customer Balance Summary</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Receivable Summary</span></a>
+                                </li>
+                                <li>
+                                    <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                    <a href="#"><span class=" span-lis pl-2">Receivable Details</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                <!--2nd row ends above-->
+                <div class="row business-row pt-0">
+                    <div class="col-md-4">
+                        <img src="images/credit-card.png" class="img-fluid business-icon" height="20px" width="20px">
+                        <h4 class="business-text">Payments Received</h4>
+                        <ul>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Payments Received</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Time to Get Paid</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Credit Note Details</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Refund History</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="images/rec-invoice.png" class="img-fluid business-icon" height="20px" width="20px">
+                        <h4 class="business-text">Recurring Invoices</h4>
+                        <ul>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Recurring Invoice Details</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="images/payables.png" class="img-fluid business-icon" height="20px" width="20px">
+                        <h4 class="business-text">Payables</h4>
+                        <ul>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Vendor Balances</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Vendor Balance Summary</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Aging Summary</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Aging Details</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Bills Details</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Vendor Credits Details</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Payments Made</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Refund History</span>
+                                </a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Purchase Order Details</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Purchase Orders by Vendor</span>
+                                </a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Payable Summary</span>
+                                    <img src="images/new.png" class="img-fluid icon-new">
+                                </a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Payable Details</span>
+                                    <img src="images/new.png" class="img-fluid icon-new">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--2nd row ends above-->
+
+                  <!--3rd row starts below-->
+                  <div class="row business-row pt-0">
+                    <div class="col-md-4">
+                        <img src="images/shopping-bag.png" class="img-fluid business-icon" height="20px" width="20px">
+                        <h4 class="business-text">Purchases and Expenses</h4>
+                        <ul>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Purchases by Vendor</span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> Purchases by Item </span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> Expense Details </span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> Expenses by Category </span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> Expenses by Customer </span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> Expenses by Project </span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> Expenses by Employee </span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> Billable Expense Details </span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4 class="business-text">Taxes</h4>
+                        <ul>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> Tax Summary </span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> TDS Summary </span></a>
+                            </li>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2"> Form No. 27EQ </span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="images/bank.png" class="img-fluid business-icon" height="20px" width="20px">
+                        <h4 class="business-text">Banking</h4>
+                        <ul>
+                            <li>
+                                <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                                <a href="#"><span class=" span-lis pl-2">Reconciliation Status</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--3rd row ends above-->
+
+                <!--4th row starts below-->
+                <div class="row business-row pt-0">
+                <div class="col-md-4">
+                    <img src="images/projects.png" class="img-fluid business-icon" height="20px" width="20px">
+                    <h4 class="business-text">Projects and Timesheet</h4>
+                    <ul>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Timesheet Details</span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Timesheet Profitability Summary  </span>
+                                <img src="images/new.png" class="img-fluid icon-new">
+                            </a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Project Summary </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Project Details  </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2">Projects Cost Summary </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Projects Revenue Summary  </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Projects Performance Summary </span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="images/account.png" class="img-fluid business-icon" height="20px" width="20px">
+                    <h4 class="business-text">Accountant</h4>
+                    <ul>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Account Transactions </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2">Account Type Summary </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2">Account Type Transactions  </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Day Book</span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> General Ledger </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2">Detailed General Ledger </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Journal Report </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Trial Balance</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="images/budget.png" class="img-fluid business-icon" height="20px" width="20px">
+                    <h4 class="business-text">Budgets</h4>
+                    <ul>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2">Budget Vs Actuals</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--4th row ends above-->
+
+             <!--5th row starts below-->
+             <div class="row business-row pt-0">
+                <div class="col-md-4">
+                    <img src="images/dollar.png" class="img-fluid business-icon" height="20px" width="20px">
+                    <h4 class="business-text">Currency</h4>
+                    <ul>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2">Realized Gain or Loss</span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2">Unrealized Gain or Loss </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="images/history.png" class="img-fluid business-icon" height="20px" width="20px">
+                    <h4 class="business-text">Activity</h4>
+                    <ul>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> System Mails  </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2">Activity Logs </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Exception Report  </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Portal Activities </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> Client Reviews </span></a>
+                        </li>
+                        <li>
+                            <img src="images/star.png" class="img-fluid" height="14px" width="14px">
+                            <a href="#"><span class=" span-lis pl-2"> API Usage </span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--5th row ends above-->
+            
+            <div class="advanced pt-3 pb-3">
+                <div class="row">
+                    <div class="col-md-2">
+                       <a href="#"><img src="images/zoho.png" class="img-fluid zoho-img" width="110px" height="110px"></a>
+                    </div>
+                    <div class="col-md-7">
+                        <h5 class="advanced-text mb-2">Advanced Financial Analytics for Zoho Books </h5>
+                        <ul>
+                            <li class="advanced-lis mb-2">
+                                <img src="images/advanced-tick.png" class="img-fluid mr-1">
+                                Create <span class="font-li-bold">insightful reports & dashboards </span>with your Zoho Books data for in-depth financial analysis.
+                            </li>
+                            <li class="advanced-lis mb-2 ">
+                                <img src="images/advanced-tick.png" class="img-fluid mr-1">
+                                Analyze and keep track of your key<span class="font-li-bold"> financial metrics.</span>
+                            </li>
+                            <li class="advanced-lis mb-2">
+                                <img src="images/advanced-tick.png" class="img-fluid mr-1">
+                                Create <span class="font-li-bold">  reports from multiple organizations </span>of Zoho Books.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="btn btn-danger zoho-btn">Try Zoho Analytics</a>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--main menu div-->
+    </div><!--d-flex div-->
+</div><!--wrapper div-->
+             <!-- Modal -->
+             <div class="reports-modal">
+                <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title reports-modal-title" id="exampleModalLabel">Configure Report Layout for Export and Print
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--modal-body starts below-->
+                              <div class="row">
+                                  <div class="col-md-8">
+                                      <div class="row state-border">
+                                          <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>State</label>
+                                                    <select class="form-control form-option position-relative dropdown-img-transition">
+                                                    <option>Classic</option>
+                                                    <option>Compact</option>
+                                                    <option>Super Compact</option>
+                                                    </select>
+                                                    <img src="images/down-arrow.png" class="img-fluid select-down-arrow">
+                                                </div>
+                                           </div>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Table Design</label>
+                                                <select id="select-text" class="form-control form-option position-relative dropdown-img-transition1">
+                                                <option value="0">Default</option>
+                                                <option value="1">Bordered</option>
+                                                <option value="2">Alternative rows</option>
+                                                <option value="3">Alternative columns</option>
+                                                </select>
+                                                <img src="images/down-arrow.png" class="img-fluid select-down-arrow1">
+                                                <p class="table-text table-text1 d-none mt-2">The table design will not be applicable to Business Overview and Tax reports.</p>
+                                                <p class="table-text table-text2 d-none mt-2">The table design will not be applicable to Business Overview and Tax reports.</p>
+                                                <p class="table-text table-text3 d-none mt-2">The table design will not be applicable to Business Overview and Tax reports.</p>
+                                            </div>
+                                          </div>
+                                      </div>
+                                       
+                                      <hr class="border-dashed"> 
+                                      <h4 class="choose">Choose Details to Display</h4>
+                                      <br>
+                                      <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                      <input class="form-check-input org mt-6" type="checkbox" id="gridCheck">
+                                                      <label class="form-check-label padd-check" for="gridCheck">
+                                                        Organization Name
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                      <input class="form-check-input rep mt-6" type="checkbox" id="gridCheck1">
+                                                      <label class="form-check-label p-0" for="gridCheck1">
+                                                        Report Basis
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                      <input class="form-check-input page mt-6" type="checkbox" id="gridCheck2">
+                                                      <label class="form-check-label p-0" for="gridCheck2">
+                                                        Page Number
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                      <input class="form-check-input gen mt-6" type="checkbox" id="gridCheck3">
+                                                      <label class="form-check-label p-0" for="gridCheck3">
+                                                        Generated By
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                      <input class="form-check-input date mt-6" type="checkbox" id="ignore-checkbox" name="ignore-checkbox">
+                                                      <label class="form-check-label p-0" for="ignore-checkbox">
+                                                        Generated Date
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                            
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                      <input class="form-check-input time mt-6 coupon_question" type="checkbox" id="gridCheck5" name="set-up-account" disabled  value="1" onchange="valueChanged()"/>
+                                                      <label class="form-check-label p-0" for="gridCheck5">
+                                                        Generated Time
+                                                      </label>
+                                                    </div>
+                                                  </div> 
+                                            </div>
+                                            
+                                      </div>
+
+                                      <hr class="border-dashed"> 
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                                <div class="label-style">Paper Size</div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input">
+                                                    <label class="custom-control-label padd-radio" for="customRadioInline1">A4</label>
+                                                </div>
+                                                
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input">
+                                                    <label class="custom-control-label padd-radio" for="customRadioInline2">Letter</label>
+                                                </div>
+                                           </div>
+                                           <div class="col-md-6">
+                                                <div class="label-style">Orientation</div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+                                                    <label class="custom-control-label padd-radio" for="customRadioInline3">Portrait</label>
+                                                </div>
+                                                
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input">
+                                                    <label class="custom-control-label padd-radio" for="customRadioInline4">Landscape</label>
+                                                </div>
+                                           </div>
+                                       </div>
+
+                                       <div class="row mt-3">
+                                           <div class="col-md-6 reports-select">
+                                                <div class="form-group mb-0">
+                                                   <label>Font Family</label>
+                                                    <!-- <select name="area" id="area" class="form-control  js-example-single w-100 form-option position-relative dropdown-img-transition1" >
+                                                    </select> -->
+                                                    <select class="js-example-basic-single" name="state" id="area">
+                                                        <option value=""></option>
+                                                        <option value="11">Open Sans</option>
+                                                        <option value="22">Helvetica</option>
+                                                        <option value="33">Noto Sans</option>
+                                                        <option value="44">DejaVu Sans</option>
+                                                        <option value="55">DejaVu LGC Sans</option>
+                                                        <option value="66">IPAPGothic</option>
+                                                        <option value="77">AR PL New Sung</option>
+                                                        <option value="88">Baekmuk Gulim</option>
+                                                        <option value="99">Ubuntu</option>
+                                                        <option value="10">Roboto</option>
+                                                        <option value="111">Maitree</option>
+                                                        <option value="12">Dynamic Font</option>
+                                                      </select>
+                                                    
+                                                </div>
+                                                <small class="help-block supp d-none">
+                                                    Supports English, German, Spanish, French, Italian, Dutch, Polish, Portugese, Swedish, Catalan, Czech, Maltese, Russian and Slovenian language characters.
+                                                </small>
+                                                
+                                                <small class="help-block supp2 d-none">
+                                                    Supports all English characters.
+                                                </small>
+
+
+                                                <small class="help-block supp3 d-none">
+                                                    Supports all European languages.
+                                                </small>
+
+                                                <small class="help-block supp4 d-none">
+                                                    Supports Latin, Greek, Hebrew, Georgian, Armanian and Cyrillic scripts.
+                                                </small>
+
+                                                <small class="help-block supp5 d-none">
+                                                    Supports Latin, Greek and Cyrillic scripts.
+                                                </small>
+
+                                                <small class="help-block supp6 d-none">
+                                                    Supports Japanese characters.
+                                                </small>
+
+                                                <small class="help-block supp7 d-none">
+                                                    Supports Chinese characters.
+                                                </small>
+
+                                                <small class="help-block supp8 d-none">
+                                                    Supports Korean characters.
+                                                </small>
+
+                                                <small class="help-block supp9 d-none">
+                                                    Supports English and European languages. This font can also render Indian Rupees Symbol.
+                                                </small>
+
+                                                <small class="help-block supp10 d-none">
+                                                    Supports Latin, Greek and Cyrillic and Vietnamese scripts
+                                                </small>
+
+                                                <small class="help-block supp11 d-none">
+                                                    Supports Thai characters.
+                                                </small>
+
+
+                                                <small class="help-block supp12 d-none">
+                                                    Supports Arabic, Hebrew and other RTL Languages.
+                                                </small>
+                                           </div>
+                                           <div class="col-md-6">
+                                                <div class="label-style mb-14">Margins</div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-row">
+                                                            <input type="text" class="form-control form-padd" id="validationTooltip01" value="0.7" required>
+                                                            <label for="validationTooltip01">Top</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <div class="form-row">
+                                                            <input type="text" class="form-control form-padd" id="validationTooltip01" value="0.7" required>
+                                                            <label for="validationTooltip01">Bottom</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <div class="form-row">
+                                                            <input type="text" class="form-control form-padd" id="validationTooltip01" value="0.55" required>
+                                                            <label for="validationTooltip01">Left</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <div class="form-row">
+                                                            <input type="text" class="form-control form-padd" id="validationTooltip01" value="0.2" required>
+                                                            <label for="validationTooltip01">Right</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                          </div>
+                                       </div>
+
+                                  </div>
+
+                                  <div class="col-md-4 preview">
+                                      <div class="">
+                                        <h5 class="text-center uppercase pb-3 pt-5 preview-text">Preview</h5>
+                                          <!--preview card starts below-->
+                                          <div class="card m-4 preview-card">                           
+                                            <div class="card-body">
+                                              <h5 class="card-title text-center birds d-none">The Birds Eye</h5>
+                                              <h5 class="card-title text-center basis basic-font d-none">Basis: Accrual</h5>
+                                              
+                                              <table class="table table-default table-def">
+                                                <thead class="thead-light">
+                                                  <tr>
+                                                    <th scope="col"></th>
+                                                    <th scope="col"></th>
+                                                    <th scope="col"></th>
+                                                    <th scope="col"></th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+
+                                              <table class="table table-bordered table-bor d-none">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col"></th>
+                                                    <th scope="col"></th>
+                                                    <th scope="col"></th>
+                                                    <th scope="col"></th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  </tr>
+                                               
+                                                </tbody>
+                                              </table>
+
+                                              <table class="table table-striped alter-row d-none">
+                                                  <tbody>
+                                                      <tr>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                          <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <table class="table rep-layout-classic rep-layout-alternative-columns alter-col d-none">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                
+                                               <div class="row card-text-bottom">
+                                                    <div class="col-md-3 pr-0">
+                                                        <p class="font-xs d-none acc">accounts</p>
+                                                    </div>
+                                                    <div class="col-md-3  pr-0">
+                                                        <p class="font-xs d-none page-one">Page 1 of 1</p>
+                                                    </div>
+                                                    <div class="col-md-4 pr-0">
+                                                        <p class="font-xs d-none page-date">19/03/2021</p>
+                                                    </div>
+                                                    <div class="col-md-2 pr-0 pl-0">
+                                                        <p class="font-xs d-none page-time"> 06:05 PM</p>
+                                                    </div>
+                                               </div>
+                                            </div>
+                                          </div>
+
+                                          <!--preview card ends above-->
+               
+                                      </div>
+                                 </div>
+                                 <div class="note-padding">
+                                    <div class="highlight-border pl-3 mt-5">
+                                        <small class="note-font">
+                                            <span class="note">Note:</span>The changes made here will be applicable to all the reports when you print them, or when you export the PDF of reports.
+                                        </small>
+                                    </div>
+                                </div>
+
+                              </div>
+
+                            
+                              
+                            <!--modal-body ends above-->
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-primary save-btn">Save</button>
+                        <button type="button" class="btn btn-secondary cancel-btn" data-dismiss="modal">Cancel</button>
+                       
+                        </div>
+                    </div>
+                    </div>
+                </div>  
+           </div>    
+    
+
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src='js/jquery.dataTables.min.js'></script>
+    <!-- <script src="js/select2.min.js"></script> -->
+    <script src="js/select2.js"></script>
+    <script src="js/custom.js"></script>
+    
+    <script>
+            $(".dropdown-img-transition").click(function(){
+            $(".select-down-arrow").toggleClass("img-reverse");
+            });
+
+            $(".dropdown-img-transition1").click(function(){
+            $(".select-down-arrow1").toggleClass("img-reverse");
+            });
+    </script>
+
+    <script>
+        $(".org").click(function(){
+            $(".birds").toggleClass("birds-add");
+            });
+
+            $(".rep").click(function(){
+            $(".basis").toggleClass("birds-add");
+            });
+
+            $(".page").click(function(){
+            $(".page-one").toggleClass("birds-add");
+            });
+
+            $(".gen").click(function(){
+            $(".acc").toggleClass("birds-add");
+            });
+
+            $(".date").click(function(){
+            $(".page-date").toggleClass("birds-add");
+            $(".page-time").removeClass("birds-add");
+            });
+
+    </script>
+
+    <script type="text/javascript">
+        function valueChanged()
+        {
+            if($('.coupon_question').is(":checked"))   
+            $(".page-time").addClass("birds-add");
+            else
+            $(".page-time").removeClass("birds-add");
+        }
+    </script>
+
+    <script>
+        function  enableDisableButton() {
+
+            var isChecked = ($('input[name=ignore-checkbox]').is(':checked'));
+
+            if (isChecked == true) {
+                $("input[name=set-up-account]").removeAttr("disabled");
+            }
+            else {
+                $("input[name=set-up-account]").attr("disabled", "disabled");
+            }
+
+        }
+
+        //$('#mobilePage').on('pageinit', function (event) { //document ready for jquery mobile
+
+            //enableDisableButton();
+
+            $('#ignore-checkbox').bind("change", function () {
+                enableDisableButton();
+            });
+
+        //});
+    </script>
+
+    <script>
+
+        $("#select-text").change(function(){
+            if($(this).val() == "0") {
+            $('.table-def').removeClass('dd-none');
+            } else {
+            $('.table-def').addClass('dd-none');
+            }
+        });
+
+        $("#select-text").change(function(){
+            if($(this).val() == "1") {
+            $('.table-text1').addClass('d-block');
+            $('.table-bor').removeClass('d-none');
+            $('.table-def').addClass('d-none');
+            } else {
+            $('.table-text1').removeClass('d-block');
+            $('.table-bor').addClass('d-none');
+            $('.table-def').removeClass('d-none');
+            }
+        });
+
+        $("#select-text").change(function(){
+            if($(this).val() == "2") {
+            $('.table-text2').addClass('d-block');
+            $('.alter-row').removeClass('d-none');
+            $('.table-def').addClass('d-none');
+            
+            } else {
+            $('.table-text2').removeClass('d-block');
+            $('.alter-row').addClass('d-none');
+            $('.table-def').removeClass('d-none');
+            }
+        });
+
+        $("#select-text").change(function(){
+            if($(this).val() == "3") {
+            $('.table-text3').addClass('d-block');
+            $('.alter-col').removeClass('d-none');
+            $('.table-def').addClass('d-none');
+            } else {
+            $('.table-text3').removeClass('d-block');
+            $('.alter-col').addClass('d-none');
+            $('.table-def').removeClass('d-none');
+            }
+        });
+
+   </script>
+
+   <script>
+        $("#area").change(function(){
+            if($(this).val() == "11") {
+            $('.supp').removeClass('d-none');
+            } else {
+            $('.supp').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "22") {
+            $('.supp2').removeClass('d-none');
+            } else {
+            $('.supp2').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "33") {
+            $('.supp3').removeClass('d-none');
+            } else {
+            $('.supp3').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "44") {
+            $('.supp4').removeClass('d-none');
+            } else {
+            $('.supp4').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "55") {
+            $('.supp5').removeClass('d-none');
+            } else {
+            $('.supp5').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "66") {
+            $('.supp6').removeClass('d-none');
+            } else {
+            $('.supp6').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "77") {
+            $('.supp7').removeClass('d-none');
+            } else {
+            $('.supp7').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "88") {
+            $('.supp8').removeClass('d-none');
+            } else {
+            $('.supp8').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "99") {
+            $('.supp9').removeClass('d-none');
+            } else {
+            $('.supp9').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "10") {
+            $('.supp10').removeClass('d-none');
+            } else {
+            $('.supp10').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "111") {
+            $('.supp11').removeClass('d-none');
+            } else {
+            $('.supp11').addClass('d-none');
+            }
+        });
+
+        $("#area").change(function(){
+            if($(this).val() == "12") {
+            $('.supp12').removeClass('d-none');
+            } else {
+            $('.supp12').addClass('d-none');
+            }
+        });
+   </script>
+
+   <script>
+        // In your Javascript (external .js resource or <script> tag)
+            $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+   </script>
+
+    <script>
+        $( function() {
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $( "#tags" ).autocomplete({
+            source: availableTags
+        });
+        } );
+        </script>
+
+
+  </body>
+</html>

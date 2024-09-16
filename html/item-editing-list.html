@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>list-edit</title>
+    <style>
+      .item-tab-edit  textarea.form-control{width: 265px !important;}
+      .submenu.main li{padding: 8px 25px 8px 0px;}
+/*.btn-change,.btn-change:hover{background-color: #ff5858;color:#fff;border: inherit;padding:5px 7px;border-radius: 2px;}*/
+    </style>
+  </head>
+  <body>
+    <header class=" bg-grey">
+        <nav class="navbar navbar-expand-lg p-0">
+          <a class="navbar-brand nav-logo" href="#"><img class="logo" src="images/logo.png"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a href="javascript:viod(0)"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:viod(0)"><i class="fa fa-history fa-lg" aria-hidden="true"></i></a>
+              </li>
+              <li class="nav-item position-relative search-field">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="">
+                </div>
+                <img class="search" src="images/search.png">
+              </li>
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <span>Trial expires in 13 days</span> <a href="javascript:void(0)" class="clr-blue">Upgrade</a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:void(0)" class="thebirdseye">The Birds Eye</a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:void(0)" class="referearn"><i class="fa fa-users fa-lg" aria-hidden="true"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:void(0)" class="notification"><i class="fa fa-bell fa-lg" aria-hidden="true"></i> </a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:void(0)" class="settings"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:void(0)"><i class="fa fa-question-circle fa-lg" aria-hidden="true"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:void(0)"></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+
+
+  <div class="wrapper">
+        <div class="d-flex">
+            <div class="side--menu bg-grey submenu main">
+                <ul class="list-unstyled accordion" id="accordionExample">
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-tachometer"></i>Dashboard</a>
+                    </li>
+                     <li class=" menuli">
+                        <a href="#"><i class="fa fa-shopping-basket"></i>Items<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-university"></i>Banking</a>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingOne" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-shopping-cart"></i>Sales <img src="images/arrow.png"></a>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingTwo" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-shopping-bag"></i>Purchases<img src="images/arrow.png"></a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingThree" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>Time Tracking <img src="images/arrow.png"></a>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingFour" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-user"></i></i>Accountant<img src="images/arrow.png"></a>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-line-chart" aria-hidden="true"></i> Reports</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-folder-open"></i> Documents</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-money" aria-hidden="true"></i> Payroll</a>
+                    </li>
+                </ul>
+                <div class="close-menu">
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+            </div>
+            <div class="main--menu w-100">
+              <div class="d-flex justify-content-between content-value ">
+                <div>
+                   <h5 class="modal-title" id="exampleModalLabel">New item</h5>  
+                </div>
+                <div>
+                    <!-- <a href="item.html"><i class="fa fa-times fa-2x" aria-hidden="true" style="color: #777;"></i></a> -->
+                  <a href="item.html">
+                       <button type="button" class="close mt-5-close" aria-label="Close" style="align-self: end;"> 
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                  </a>   
+                </div>
+              </div>
+              <section class="Customer-content mt-5 mb-5">
+                <div class="modal-main">
+
+        
+        <div class="modal-body item-tab-edit col-md-12 p-0">
+        <form>
+          <div class="frist-md-1 p-3 col-md-12">
+            <div class="form-row col-md-9 pl-0">
+                <div class="form-group col-md-2 d-flex">
+                  <label for="inputPassword4" class=" mb-0">Type</label>
+                  <div class="align-self-center ml-1">
+                      <i class="fa fa-question-circle-o" aria-hidden="true"></i> 
+                  </div>
+                </div>
+                 <div class="form-group col-md-4">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input" checked>
+                        <label class="custom-control-label pt-1" for="customRadioInline1">Good</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input">
+                        <label class="custom-control-label pt-1" for="customRadioInline2">Service</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-row col-md-9 pl-0">
+                <div class="form-group col-md-2">
+                   <label for="inputAddress">Name<sup>*</sup></label>
+                </div>
+                 <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="inputAddress" >
+                  </div>
+              </div>
+              <div class="form-row col-md-9 pl-0">
+                <div class="form-group col-md-2">
+                   <label for="inputAddress">Unit</label>
+                </div>
+                 <div class="form-group col-md-4 last-select">
+                   <select name="area" id="area" class="form-control  js-example-single" >
+                        <option value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">3</option>
+                        <option value="5">3</option>
+                        <option value="6">3</option>
+                    </select>
+                  </div>
+              </div> 
+            </div>
+            <div class="p-3">
+               <div class="form-row col-md-9">
+                <div class="form-group col-md-6">
+                    <div class="form-check form-check-inline mb-3">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" checked >
+                      <label class="form-check-label pt-1" for="inlineCheckbox3">Sales Information</label>
+                    </div> 
+                    <div class="form-row">
+                      <div class="form-group col-md-4 align-self-center">
+                        <label class="changeme1 a-border">Selling Price<sup>*</sup></label> 
+                      </div>
+                    <div class="form-group col-md-8">
+                     <div class="col-auto">
+                        <div class="input-group mb-2 input-disable">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">INR</div>
+                            </div>
+                             <input type="text" class="form-control ll" id="yourText" placeholder="Cost of Goods Sold"   />
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4 align-self-center">
+                        <label class="changeme1 a-border">Account<sup>*</sup></label> 
+                      </div>
+                    <div class="form-group col-md-8">
+                     <div class="col-auto">
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">INR</div>
+                            </div>
+                             <input type="text" class="form-control ll" id="yourText" placeholder="Cost of Goods Sold"   />
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                   <div class="form-group col-md-4">
+                         <label>Description</label> 
+                        </div>
+                        <div class="form-group col-md-8">
+                           <div class="col-auto">
+                              <div class="input-group mb-2">
+                                <textarea type="text" class="form-control ll" id="yourText"    size='4'/></textarea> 
+                              </div>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+                 <div class="form-group col-md-6 ">
+                  <div class="form32">
+                    <div class="ml-3 mb-3">
+                       <input class="form-check-input toggle" type="checkbox" id="toggleElement" onchange="toggleStatus()" />
+                      <label class="form-check-label pt-1" for="toggleElement"> Remember me</label>
+                    </div>
+                     
+                     <div class="form-row elementsToOperateOn " >
+                        <div class="form-group col-md-3 align-self-center">
+                         <label class="changeme a-border">Cost Price<sup>*</sup></label> 
+                        </div>
+                        <div class="form-group col-md-8">
+                           <div class="col-auto">
+                              <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">INR</div>
+                                </div>
+                                <input type="text" class="form-control ll" id="yourText" placeholder="Cost of Goods Sold"  disabled="disabled" />
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                       <div class="form-row elementsToOperateOn " >
+                        <div class="form-group col-md-3">
+                         <label class="changeme a-border">Account<sup>*</sup></label> 
+                        </div>
+                        <div class="form-group col-md-8">
+                           <div class="col-auto">
+                              <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text">INR</div>
+                                </div>
+                                <input type="text" class="form-control ll" id="yourText" placeholder="Cost of Goods Sold"  disabled="disabled" />
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                       <div class="form-row elementsToOperateOn " >
+                        <div class="form-group col-md-3">
+                         <label>Description</label> 
+                        </div>
+                        <div class="form-group col-md-8">
+                           <div class="col-auto">
+                              <div class="input-group mb-2">
+                                <textarea type="text" class="form-control ll" id="yourText" placeholder="Cost of Goods Sold"  disabled="disabled" size='4'/></textarea> 
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+  
+                  </div>
+              </div> 
+            </div>
+              
+            </form>
+        </div>
+        <div class="modal-footer justify-content-start">
+          <button type="submit" class="secoundry-btn mr-2">Save </button>
+          <button type="button" class="grey-btn mr-2"data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+              </section>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    </script>
+        <script >
+  $('.toggle').change(function(){
+    if($(this).is(":checked")) {
+        $('.changeme').addClass('red');
+       $('.elementsToOperateOn :input ').removeAttr('disabled');
+        
+    } else {
+        $('.changeme').removeClass('red');
+        $('.elementsToOperateOn :input').attr("disabled", !this.unchecked); 
+        
+    }
+});
+
+</script>
+  </body>
+</html>

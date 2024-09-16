@@ -1,0 +1,1497 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/select2.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>Add-new customer</title>
+    <style>
+        .main-menu-overflow {
+            overflow: auto;
+        }
+        
+        .data-tabele-1 .delete-row {
+            margin-left: 3px;
+        }
+        
+        #test-table::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+            border-radius: 10px;
+        }
+        
+        #test-table::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+            background-color: #F5F5F5;
+        }
+        
+        #test-table::-webkit-scrollbar-thumb {
+            background-color: #B2ACAC;
+            border-radius: 10px;
+        }
+        
+        .new-head {
+            border-bottom: 1px solid #eee;
+            padding: 20px 20px;
+        }
+        
+        .tool-tip {
+            border: 0px;
+            background-color: #fff;
+            border-bottom: 1px dotted;
+        }
+        
+        .add-new-2 .frist-drop {
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        
+        .add-new-2 input,
+        .add-new-2 .frist-drop,
+        .add-new-2 .input-group-text,
+        .add-new-2 select {
+            height: 32px;
+            border-radius: 2px;
+            color: #495057;
+            font-size: 14px;
+        }
+        
+        .add-new-2 .dropdown-toggle::after {
+            margin-left: 4.255em;
+        }
+        
+        .add-new-2 {
+            font-size: 14px;
+        }
+        
+        .drop-down- .dropdown-toggle::after {
+            margin-left: 18.255em;
+        }
+        
+        .drop-down- .dropdown-menu.show {
+            width: 100%;
+        }
+        
+        .Customers-tab .tab-main-content {
+            background-color: #fcfcfc;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 10px 16px;
+        }
+        
+        .Customers-tab .tab-main-content a {
+            color: #2485e8!important;
+        }
+        
+        .Customers-tab .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #fff !important;
+        }
+        
+        .select2-container--default {
+            width: 100% !important;
+        }
+        
+        #addon-wrapping {
+            color: #44619d;
+        }
+        
+        .fa-twitter-square {
+            color: #00a6ff;
+        }
+        
+        .text-muted,
+        .add-new-2 .note {
+            color: #777!important;
+        }
+        
+        .add-new-2 .note a {
+            color: #2485e8;
+            background-color: transparent;
+        }
+        
+        .add-new-2 .note strong,
+        {
+            font-weight: 600;
+            color: #777!important;
+        }
+        
+        .tab-2-content .col-md-3,
+        .tab-2-content .col-md-7 {
+            margin-bottom: 1rem;
+        }
+        
+        .border-yellow {
+            border-left: 5px solid #fba800;
+        }
+        
+        .border-yellow li {
+            list-style: disc;
+            color: #141010;
+        }
+        
+        .border-yellow strong {
+            font-weight: 600;
+        }
+        
+        .last-content {
+            position: fixed;
+            bottom: 40px;
+            box-shadow: 0 -4px 5px -3px rgb(0 0 0 / 10%);
+            background-color: #fff;
+            width: 100%;
+            transition: .3s ease-in-out;
+            z-index: 3;
+            padding-bottom: 15px;
+        }
+        
+        .last-content button {
+            border: inherit;
+        }
+        
+        .last-content .border-a a {
+            color: #212529;
+            background-color: #f5f5f5;
+            border-color: 1px #ddd;
+            padding: 9px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        /*.modal.fade.show{z-index: 100000;}*/
+        
+        .frist.select2-container--open .select2-dropdown--above,
+        .select2-container--open .select2-dropdown--below {
+            z-index: 1;
+        }
+        
+        .add-new-footer .fade {
+            transition: opacity .15s linear;
+        }
+        
+        .add-new-footer .modal.fade .modal-dialog {
+            transition: transform .3s ease-out;
+        }
+        
+        .add-new-footer .modal-footer {
+            justify-content: flex-start;
+        }
+        
+        .add-new-footer button {
+            border: 0px;
+        }
+        
+        .fa-arrow-circle-down {
+            color: #007bff;
+        }
+        
+        .tab-content-2 a {
+            color: #007bff !important;
+        }
+        
+        .select2-results__option a {
+            color: #007bff !important;
+            padding: 5px 5px;
+        }
+        
+        .select2-selection__rendered {
+            font-size: 14px;
+        }
+        
+        .select2-results__option:last-child {
+            border: 1px solid #ddd;
+        }
+        
+        .a-border {
+            padding-bottom: 2px;
+            border-bottom: 1px dashed #969696!important;
+        }
+        /**/
+        
+        .select2-dropdown {
+            z-index: 1;
+        }
+        
+        .table-editable {
+            position: relative;
+        }
+        /*.table{width: unset;}*/
+        
+        .table-editable .glyphicon {
+            font-size: 20px;
+        }
+        
+        .table-remove {
+            cursor: pointer;
+        }
+        
+        .table-up,
+        .table-down {
+            color: #007;
+            cursor: pointer;
+        }
+        
+        .table-up:hover,
+        .table-down:hover {
+            color: #00f;
+        }
+        
+        .table td,
+        .table th {
+            border-top: 0px !important;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .myDIV:hover+.hide {
+            display: block;
+            color: red;
+        }
+        
+        .content tr:hover .table-rem {
+            display: block;
+            color: #e54643;
+            width: 126px;
+        }
+        
+        .content tr {
+            font-size: 14px;
+            border:
+        }
+        
+        .content tr input {
+            border: 1px solid #ced4da;
+            padding: 4px;
+            border-radius: 2px;
+        }
+        
+        .table-rem {
+            display: none;
+        }
+        
+        .table-main a {
+            color: #2485e8;
+        }
+        
+        .modal-1 .modal-dialog {
+            margin-top: 0px;
+        }
+        
+        .border-a.second button {
+            padding: 8px 17px;
+            border-radius: 5px;
+        }
+        
+        .thead-light tr th {
+            border: 1px solid #dee2e6 !important;
+            background-color: #f9f9f9 !important;
+        }
+        
+        .table-td tr td {
+            border: 1px solid #dee2e6 !important;
+            padding: 0px !important;
+            height: 32px;
+        }
+        
+        .table-td tr td:last-child {
+            border: inherit !important;
+            background-color: #fff !important;
+        }
+        
+        .table-td tr td input,
+        .table-td tr td select {
+            border: 0px;
+            padding: 0px!important;
+            padding: 10px !important;
+        }
+        
+        .data-tabele-1 a {
+            color: #2485e8 !important;
+        }
+        
+        .data-tabele-1 .delete-row {
+            color: #fab2b1;
+            cursor: pointer;
+        }
+        
+        .data-tabele-1 .delete-row:hover {}
+        
+        .data-tabele-1 .more-border {
+            border: 1px solid #47a9df;
+            border-radius: 50%;
+            padding-left: 4px;
+            padding-right: 4px;
+            color: #47a9df;
+            padding-top: 0px;
+            font-size: 9px;
+            cursor: pointer;
+        }
+        
+        .data-tabele-1 th {
+            min-width: 136px;
+        }
+        
+        .data-tabele-1 table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .table.table-condensed {
+            display: block;
+            max-width: -moz-fit-content;
+            max-width: fit-content;
+            margin: 0 auto;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .Customers-tab {
+            overflow: hidden;
+        }
+        /*table .total-td td{width: 181px;}*/
+        
+        .admin-card {
+            position: absolute;
+            right: 0px;
+            top: 40px;
+            width: 400px !important;
+            box-shadow: -2px 5px 10px 1px rgb(0 0 0 / 18%);
+        }
+        
+        .admin-card .card.h-100 {
+            height: 100vh !important;
+        }
+        
+        .admin-card .card .card-header {
+            background-color: #f3f8fe!important;
+        }
+        
+        .admin-card .card img {
+            border-radius: 50% !important;
+        }
+        
+        .user-sign-in .val1 {
+            padding-right: 10px;
+        }
+        
+        .user-sign-in .val1:after {
+            content: "|";
+            padding-left: 10px;
+        }
+        
+        a.val2 {
+            color: #e4585a!important;
+        }
+        
+        .close-img-1 img {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 10px 10px;
+        }
+        
+        .border-body {
+            border-bottom: 1px solid #eee;
+        }
+        
+        p.f-12 {
+            font-size: 12px;
+        }
+        
+        .border-body-2 {
+            color: #fff;
+            font-size: 14px;
+            background-color: #268ddd;
+        }
+        
+        .add-input input {
+            padding-bottom: 10px;
+        }
+        
+        .admin-card {
+            position: absolute;
+            right: 0px;
+            top: 40px;
+            width: 400px !important;
+            box-shadow: -2px 5px 10px 1px rgb(0 0 0 / 18%);
+        }
+        
+        .admin-card .card.h-100 {
+            height: 100vh !important;
+        }
+        
+        .admin-card .card .card-header {
+            background-color: #f3f8fe!important;
+        }
+        
+        .admin-card .card img {
+            border-radius: 50% !important;
+        }
+        
+        .user-sign-in .val1 {
+            padding-right: 10px;
+        }
+        
+        .user-sign-in .val1:after {
+            content: "|";
+            padding-left: 10px;
+        }
+        
+        a.val2 {
+            color: #e4585a!important;
+        }
+        
+        .close-img-1 img {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 10px 10px;
+        }
+        
+        .border-body {
+            border-bottom: 1px solid #eee;
+        }
+        
+        p.f-12 {
+            font-size: 12px;
+        }
+        
+        .border-body-2 {
+            color: #fff;
+            font-size: 14px;
+            background-color: #268ddd;
+        }
+        
+        .add-input input {
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class=" bg-grey">
+        <nav class="navbar navbar-expand-lg p-0">
+            <a class="navbar-brand nav-logo" href="#"><img class="logo" src="images/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="javascript:viod(0)"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:viod(0)"><i class="fa fa-history fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item position-relative search-field">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="">
+                        </div>
+                        <img class="search" src="images/search.png">
+                    </li>
+                </ul>
+                <ul class="navbar-nav position-relative">
+                    <li class="nav-item">
+                        <span>Trial expires in 13 days</span> <a href="javascript:void(0)" class="clr-blue">Upgrade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="thebirdseye">The Birds Eye</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="referearn"><i class="fa fa-users fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)"><i class="fa fa-bell fa-lg" aria-hidden="true"></i> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)"><i class="fa fa-question-circle fa-lg" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)"><i class="fa fa-user-circle-o fa-2x input-img2" aria-hidden="true"></i></a>
+                    </li>
+                    <div class="admin-card d-none ">
+                        <div class="card h-100 position-relative">
+                            <div class="close-img-1">
+                                <a href="#"><img src="images/close.png"></a>
+                            </div>
+                            <div class="card-header text-center">
+                                <div class="mb-2">
+                                    <img src="images/user-img.png">
+                                </div>
+                                <div class="pb-3">
+                                    <h6>ACCOUNTS</h6>
+                                    <p>User ID: 60003651303</p>
+                                    <p class="f-12">accounts@thebirdseye.in</p>
+                                </div>
+                                <div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="user-sign-in">
+                                            <a class="val1" href="#">My Account</a>
+                                        </div>
+                                        <div>
+                                            <a class="val2" href="#">Sign Out</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0 ">
+                                <div class="d-flex justify-content-between border-body p-3">
+                                    <div class="text-muted">
+                                        <p>MY ORGANIZATIONS</p>
+                                    </div>
+                                    <div>
+                                        <a href="#"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="pt-1">
+                                    <div class="d-flex justify-content-between border-body-2 p-2">
+                                        <div>
+                                            <p>The Birds Eye</p>
+                                            <p>organization ID: 60003651303</p>
+                                            <p>TRIAL</p>
+                                        </div>
+                                        <div>
+                                            <a href="#"><i class="fa fa-check-circle" aria-hidden="true" style="color:green;"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="d-flex">
+            <div class="side--menu bg-grey pt-3">
+                <ul class="list-unstyled accordion" id="accordionExample">
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-tachometer"></i>Dashboard</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-shopping-basket"></i>Items</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-university"></i>Banking</a>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingOne" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-shopping-cart"></i>Sales <img src="images/arrow.png"></a>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingTwo" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-shopping-bag"></i>Purchases<img src="images/arrow.png"></a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingThree" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>Time Tracking <img src="images/arrow.png"></a>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menuli">
+                        <a href="#" class="d-flex collapse--" id="headingFour" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-user"></i></i>Accountant<img src="images/arrow.png"></a>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <ul class="list-unstyled submenu">
+                                <li><a href="#">Customers<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Estimates<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Sales Orders<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Delivery Challans<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                                <li><a href="#">Invoices<span class=""><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-line-chart" aria-hidden="true"></i> Reports</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-folder-open"></i> Documents</a>
+                    </li>
+                    <li class=" menuli">
+                        <a href="#"><i class="fa fa-money" aria-hidden="true"></i> Payroll</a>
+                    </li>
+                </ul>
+                <div class="close-menu">
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+            </div>
+            <div class="main--menu w-100 main-menu-overflow">
+                <div class="main-content--">
+                    <div class="d-flex justify-content-between new-head">
+                        <div>
+                            <h3>New Customer</h3>
+                        </div>
+                        <div class="align-self-center">
+                            <div class="mr-3"><a href="#" class="tips"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Page Tips</a></div>
+                        </div>
+                    </div>
+                    <div class="p-3 add-new-2 ">
+                        <form class="col-md-8">
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label data-toggle="tooltip" data-placement="right" title="The contacts which are associated to any Accountant in CRM is of type Business and the other contacts will be of type individual" class="a-border">Customer Type</label>
+                                </div>
+                                <div class="form-group col-md-9">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline1">Business</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline2">Individual</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-3 ">
+                                    <label href="#" data-toggle="tooltip" data-placement="right" title="The name you enter here will be  for your Primary contact.You can continue to add multiple contact persons from the details page" class="a-border">Primary Contact</label>
+                                </div>
+                                <div class="form-group col-md-9">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                 <option value="" hidden>Salutation</option>
+                                    <option>Mr.</option>
+                                    <option>Mrs.</option>
+                                    <option>Miss.</option>
+                                    <option>Dr.</option>
+                                  </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div>
+                                                <input type="text" class="form-control" placeholder="Frist name" aria-label="Frist name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class=" ">
+                                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                        <label>Company Name</label>
+                                    </div>
+                                    <div class="form-group col-md-6 mb-0">
+                                        <input type="text" class="form-control" placeholder="" aria-label="Last name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                        <label>Customer Display Name</label>
+                                    </div>
+                                    <div class="form-group col-md-6 drop-down- mb-0">
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                    <option></option>
+                                    <option>Mr.</option>
+                                    <option>Mrs.</option>
+                                    <option>Miss.</option>
+                                    <option>Dr.</option>
+                                  </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <i class="fa fa-question-circle" style="color: #ddd;" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="This name will be displayed on the transactions you create for this customer"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                        <label>Customer Email</label>
+                                    </div>
+                                    <div class="form-group col-md-6 mb-0">
+                                        <input type="text" class="form-control" placeholder="" aria-label="Last name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                        <label>Customer Phone</label>
+                                    </div>
+                                    <div class="form-group col-md-9 mb-0">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <input type="number" class="form-control" placeholder="Work Phone" aria-label="Last name">
+                                            </div>
+                                            <div class="col-md-4 pr-2">
+                                                <input type="number" class="form-control" placeholder="Moblie" aria-label="Last name">
+                                            </div>
+                                            <div class="col-md-4 align-self-center input-feild-">
+                                                <a href="#" class="">Add more details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group add-input d-none col-md-12 mb-0">
+                                <div class="form-row">
+                                    <div class="form-group col-md-9 mb-0">
+                                        <div class="row">
+                                            <div class="col-md-4 p-0 align-self-center">
+                                                <label>Skype Name/Number</label>
+                                            </div>
+                                            <div class="col-md-8 p-0 pb-3 pr-2">
+                                                <div class="input-group ">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-skype" aria-hidden="true" style="color:#00aff0"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-9 mb-0">
+                                        <div class="row">
+                                            <div class="col-md-4 p-0 align-self-center">
+                                                <label>Designation</label>
+                                            </div>
+                                            <div class="col-md-8 p-0 pb-3 pr-2">
+                                                <input type="text" class="form-control" aria-label="Last name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-9 mb-0">
+                                        <div class="row">
+                                            <div class="col-md-4 p-0 align-self-center">
+                                                <label>Department</label>
+                                            </div>
+                                            <div class="col-md-8 p-0 pb-3 pr-2">
+                                                <input type="text" class="form-control" aria-label="Last name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3 align-self-center">
+                                        <p>Website</p>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" placeholder="" aria-label="Last name">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="pt-4 pb-4 Customers-tab ">
+                        <ul class="nav nav-pills mb-3 tab-main-content" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Other Details</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Address</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact persons</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content mx-1100" id="pills-tabContent">
+                            <div class="tab-pane fade show active add-new-2 mb-5 pb-5" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form class="col-md-8">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-3 align-self-center mb-0">
+                                                    <label class="text-center">Currency</label>
+                                                </div>
+                                                <div class="form-group col-md-6 mb-0  ">
+                                                    <div class="form-group  frist ">
+                                                        <select class="form-control select2-hidden-accessible  js-example-single w-100  frist " data-plugin="select2" id='select' tabindex="-1" aria-hidden="true" data-placeholder="Select a state">
+                                        <optgroup label="Select Cutomer">
+                                        <option value="AK">Zilal</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        </optgroup>
+                                    </select>
+                                                        <div class="wrapper" id="wrp" style="display: none;">
+                                                            <a href="#" id="type" class="font-weight-300" data-toggle="modal" data-target="#exampleModal">+ Add New Currency</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                                        <label class="text-center">Opening Balance</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6 mb-0 ">
+                                                        <input type="text" name="" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                                        <label class="text-center">Payment Terms</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6 mb-0 ">
+                                                        <div class="form-group  frist ">
+                                                            <select class="form-control select2-hidden-accessible  js-example-single w-100  frist " data-plugin="select2" id='select1' tabindex="-1" aria-hidden="true" data-placeholder="Select a state">
+                                        <optgroup label="Select Cutomer">
+                                        <option value="AK">Zilal</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        <option value="HI">Ajay</option>
+                                        </optgroup>
+                                    </select>
+                                                            <div class="wrapper" id="wrp1" style="display: none;">
+                                                                <a href="#" id="type" class="font-weight-300" data-toggle="modal" data-target="#example-Modal"><i class="fa fa-cog" aria-hidden="true"></i> Configure Terms</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                                        <label> <a href="#" data-toggle="tooltip" data-placement="right" title="Give your Customers access  top portal to view transitions and make online Payments." class="a-border">Enable Portal?</a></label>
+                                                    </div>
+                                                    <div class="form-group col-md-6 ">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                            <label class="custom-control-label align-self-center " for="customCheck1">Allow portal access for this customer</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                                        <label> <a href="#" data-toggle="tooltip" data-placement="right" title="This will change the contact's portal in corresponding languages" class="a-border">Portal Language</a></label>
+                                                    </div>
+                                                    <div class="form-group col-md-6 mb-0">
+                                                        <select name="area" id="area" class="form-control  js-example-single">
+                                    <option value=""></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                                        <label class="text-center">Facebook</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6 mb-0 ">
+                                                        <div class="input-group flex-nowrap">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="addon-wrapping"><i class="fa fa-facebook-official" aria-hidden="true"></i></span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        </div>
+                                                        <small class="text-muted">http://www.facebook.com/</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3 align-self-center mb-0">
+                                                        <label class="text-center">Facebook</label>
+                                                    </div>
+                                                    <div class="form-group col-md-6 mb-0 ">
+                                                        <div class="input-group ">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="addon-wrapping"><i class="fa fa-twitter-square" aria-hidden="true"></i></span>
+                                                            </div>
+                                                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        </div>
+                                                        <small class="text-muted">http://www.twitter.com/</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="pl-2 note">
+                                            <p><strong>Customer Owner:</strong> Assign a user as the Customer owner to provide access only to the data of this customer.<a href="#"> Learn More</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade add-new-2  mb-5 pb-5 " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div>
+                                    <form class="p-3 tab-2-content">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <h6 class="mb-3">BILLING ADDRESS</h6>
+                                                <div class="row">
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Attention</label></div>
+                                                    <div class="col-md-7"><input type="password" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Country/Region</label></div>
+                                                    <div class="col-md-7 frist">
+                                                        <select name="area" id="area" class="form-control  js-example-single w-100">
+                                                <option value=""></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                                    </div>
+                                                    <div class="col-md-3"> <label for="inputPassword4" class="mb-0">Address</label></div>
+                                                    <div class="col-md-7"> <textarea class="form-control mb-3" id="exampleFormControlTextarea1" rows="3" placeholder="Street 1"></textarea>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Street 1"></textarea></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">City</label></div>
+                                                    <div class="col-md-7"><input type="text" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">State</label></div>
+                                                    <div class="col-md-7"><input type="text" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Zip Code</label></div>
+                                                    <div class="col-md-7"><input type="number" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Phone</label></div>
+                                                    <div class="col-md-7"><input type="number" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Fax</label></div>
+                                                    <div class="col-md-7"><input type="text" class="form-control" id="inputPassword4"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6 tab-content-2">
+                                                <div class="row">
+                                                    <div class="col-md-6 align-self-center">
+                                                        <h6 class="mb-3">SHIPPING ADDRESS</h6>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3 pr-0"><a href="#"><span class=""><i class="fa fa-arrow-circle-down mr-2" aria-hidden="true"></i><span>Copy billing address</a> </div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Attention</label></div>
+                                                    <div class="col-md-7"><input type="password" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Country/Region</label></div>
+                                                    <div class="col-md-7 frist">
+                                                        <select name="area" id="area" class="form-control  js-example-single w-100 ">
+                                                <option value=""></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                                    </div>
+                                                    <div class="col-md-3"> <label for="inputPassword4" class="mb-0">Address</label></div>
+                                                    <div class="col-md-7"> <textarea class="form-control mb-3" id="exampleFormControlTextarea1" rows="3" placeholder="Street 1"></textarea>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Street 1"></textarea></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">City</label></div>
+                                                    <div class="col-md-7"><input type="text" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">State</label></div>
+                                                    <div class="col-md-7"><input type="text" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Zip Code</label></div>
+                                                    <div class="col-md-7"><input type="number" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Phone</label></div>
+                                                    <div class="col-md-7"><input type="number" class="form-control" id="inputPassword4"></div>
+                                                    <div class="col-md-3 align-self-center"> <label for="inputPassword4" class="mb-0">Fax</label></div>
+                                                    <div class="col-md-7"><input type="text" class="form-control" id="inputPassword4"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="border-yellow">
+                                            <div class="ml-3">
+                                                <p><strong>Note:</strong></p>
+                                                <ul class="pl-3">
+                                                    <li>You can add and manage additional addresses from contact details section.</li>
+                                                    <li>View and edit the address format of your transactions under Settings > Preferences > Customers and Vendors.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="p-3 mb-5">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive  data-tabele-1">
+                                            <table id="test-table" class="table table-condensed">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th>Salutation</th>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Email Address</th>
+                                                        <th>Work Phone</th>
+                                                        <th>Mobile</th>
+                                                        <th class="hidden-column d-none">Skype Name/Number</th>
+                                                        <th class="hidden-column d-none">Designation</th>
+                                                        <th class="hidden-column d-none">Department</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="test-body" class="table-td">
+                                                    <tr id="row0">
+                                                        <td>
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option></option>
+                                            <option>Mr.</option>
+                                            <option>Mrs.</option>
+                                            <option>Miss.</option>
+                                            <option>Dr.</option>
+                                          </select>
+                                                        </td>
+                                                        <td>
+                                                            <input name='to_value0' type='text' class='form-control input-md' />
+                                                        </td>
+                                                        <td>
+                                                            <input name='to_value0' type='text' class='form-control input-md' />
+                                                        </td>
+                                                        <td>
+                                                            <input name='to_value0' type='text' class='form-control input-md' />
+                                                        </td>
+                                                        <td>
+                                                            <input name='to_value0' type='text' class='form-control input-md' />
+                                                        </td>
+                                                        <td>
+                                                            <input name='to_value0' type='text' class='form-control input-md' />
+                                                        </td>
+                                                        <td class="hidden-column d-none">
+                                                            <input name='to_value0' type='text' class='form-control input-md' />
+                                                        </td>
+                                                        <td class="hidden-column d-none">
+                                                            <input name='to_value0' type='text' class='form-control input-md' />
+                                                        </td>
+                                                        <td class="hidden-column d-none">
+                                                            <input name='to_value0' type='text' class='form-control input-md' />
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex mt-2">
+                                                                <div class="mr-2 ml-2 more-border more">
+                                                                    <i class="fa fa-ellipsis-h " data-toggle="tooltip" data-placement="top" title="Show More details" class="a-border" aria-hidden="true"></i>
+                                                                </div>
+                                                                <i class="fa fa-times delete-row align-self-center" data-toggle="tooltip" data-placement="top" title="delete" class="a-border" aria-hidden="true"></i>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <a href="#" id='add-row' class='btn ' type='button' value='Add' />
+                                            <Span class=" mr-2">+</Span>Add Contact Person </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="last-content ">
+                        <div class="d-flex justify-content-start content-value ">
+                            <div>
+                                <button class="secoundry-btn " type="submit"> Save</button>
+                            </div>
+                            <div class="border-a align-self-center btn">
+                                <div>
+                                    <a href="#">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Birds Eye -->
+    <div class="modal-card" id="thebirdseye">
+        <div class="close-modal-card">
+            <img src="images/close.png">
+        </div>
+        <div class="modal-card-head text-center">
+            <img class="dp" src="images/dp.png">
+            <h6 class="pt-2">accounts</h6>
+            <p class="user-id pt-1">User ID: 60003651303</p>
+            <p class="user-mail pt-1">accounts@thebirdseye.in</p>
+            <div class="d-flex account-signout justify-content-center pt-2">
+                <p><a class="my--account" href="#">My Account</a></p>
+                <span class="straight-line">|</span>
+                <p><a class="sign--out" href="#">Sign Out</a></p>
+            </div>
+        </div>
+        <div class="d-flex py-3 px-3 bdr-btm">
+            <p class="mr-auto text-grey">MY ORGANIZATIONS</p>
+            <p class="text-blue"><i class="fa fa-cog text-blue" aria-hidden="true"></i> Manage</p>
+        </div>
+        <div class="d-flex px-3 mt-2 py-2">
+            <div class="list-details">
+                <p>The Birds Eye</p>
+                <p class="org-id">Organization ID: 60008466374</p>
+                <p class="trail">TRIAL</p>
+            </div>
+            <div>
+                <img src="">
+            </div>
+        </div>
+    </div>
+    <!-- The Birds Eye -->
+    <!-- Refer and Earn -->
+
+    <!-- Refer and Earn -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!-- modal -->
+
+    <!-- Modal -->
+    <div class="modal fade add-new-footer modal-1 " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Currency</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Currency Code*</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                  <option></option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Currency Symbol*</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Currency Name*</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Decimal Places</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                  <option></option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Format</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                  <option></option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="secoundry-btn">Save and Select</button>
+                            <div class="border-a second">
+                                <button type="button" data-dismiss="modal"><a href="#" >Cancel</a></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- modaul -->
+    <!-- Modal -->
+    <div class="modal fade add-new-footer  " id="example-Modal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #f5f5f5;">
+                    <h5 class="modal-title" id="exampleModalLabel">Configure Payment Terms</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="p-3">
+                        <div class="row col-md-9">
+                            <div class="col-md-6 text-center pl-0">
+                                <p class="pl-0" style="color: #ff5858;">Term Name<sup>*</sup></p>
+                            </div>
+                            <div class="col-md-6 text-center pl-0">
+                                <p class="pl-0" style="color: #ff5858;">Number of Days<sup>*</sup></p>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div id="table" class="table-editable">
+
+
+                                <table class="table content total-td col-md-6">
+                                    <tr>
+
+
+                                        <th data-attr-ignore></th>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="p-1"><input type="text" name="Required" placeholder="Net 15"></td>
+                                        <td class="p-1"><input type="text" name="Unique" placeholder=" 15"></td>
+                                        <td class="table-rem p-1 align-self-center"><small>Mark as Default
+                     <i class="fa fa-times table-remove p-1 " aria-hidden="true"></i></small>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="p-1"><input type="text" name="Required" placeholder="Net 30"></td>
+                                        <td class="p-1"><input type="text" name="Unique" placeholder=" 30"></td>
+                                        <td class="table-rem p-1 align-self-center"><small>Mark as Default
+                     <i class="fa fa-times table-remove  p-1 " aria-hidden="true"></i></small>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="p-1"><input type="text" name="Required" placeholder="Net 45"></td>
+                                        <td class="p-1"><input type="text" name="Unique" placeholder=" 45"></td>
+                                        <td class="table-rem p-1 align-self-center"><small>Mark as Default
+                     <i class="fa fa-times table-remove p-1 " aria-hidden="true"></i></small>
+                                        </td>
+                                    </tr>
+                                    <tr class="hide">
+
+                                        <td class="p-1"><input type="text" name="Required" class="myDIV" placeholder="Net 0"></td>
+                                        <td class="p-1"><input type="text" name="Unique" class="myDIV" placeholder="Net 0"></td>
+                                        <td class="table-rem p-1 align-self-center"><small>Mark as Default
+                     <i class="fa fa-times table-remove p-1 " aria-hidden="true"></i></small>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="table-main mb-4 ml-2">
+                                <a href="#" class="fa fa-plus table-add" aria-hidden="true" aria-hidden="true"> Add New</a>
+                            </div>
+                            <div class="modal-footer pl-0 pr-0">
+                                <button type="button" class="secoundry-btn">Save and Select</button>
+                                <div class="border-a second">
+                                    <button type="button" data-dismiss="modal"><a href="#" >Cancel</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modaul -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src='js/jquery.dataTables.min.js'></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            var flg = 0;
+
+            $('#select').on("select2:open", function() {
+                flg++;
+                if (flg == 1) {
+                    $this_html = jQuery('#wrp').html();
+                    $(".select2-results").append("<div class='select2-results__option'>" +
+                        $this_html + "</div>");
+                }
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+
+            var flg = 0;
+
+            $('#select1').on("select2:open", function() {
+                flg++;
+                if (flg == 1) {
+                    $this_html = jQuery('#wrp1').html();
+                    $(".select2-results").append("<div class='select2-results__option'>" +
+                        $this_html + "</div>");
+                }
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script>
+        var $TABLE = $('#table');
+        var $BTN = $('#export-btn');
+        var $EXPORT = $('#export');
+
+        $('.table-add').click(function() {
+            var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
+            $TABLE.find('table').append($clone);
+        });
+
+        $('.table-remove').click(function() {
+            $(this).parents('tr').detach();
+        });
+
+        $('.table-up').click(function() {
+            var $row = $(this).parents('tr');
+            if ($row.index() === 1) return; // Don't go above the header
+            $row.prev().before($row.get(0));
+        });
+
+        $('.table-down').click(function() {
+            var $row = $(this).parents('tr');
+            $row.next().after($row.get(0));
+        });
+
+        // A few jQuery helpers for exporting only
+        jQuery.fn.pop = [].pop;
+        jQuery.fn.shift = [].shift;
+
+        $BTN.click(function() {
+            var $rows = $TABLE.find('tr:not(:hidden)');
+            var headers = [];
+            var data = [];
+
+            // Get the headers (add special header logic here)
+            $($rows.shift()).find('th:not(:empty):not([data-attr-ignore])').each(function() {
+                headers.push($(this).text().toLowerCase());
+            });
+
+            // Turn all existing rows into a loopable array
+            $rows.each(function() {
+                var $td = $(this).find('td');
+                var h = {};
+
+                // Use the headers from earlier to name our hash keys
+                headers.forEach(function(header, i) {
+                    h[header] = $td.eq(i).text(); // will adapt for inputs if text is empty
+                });
+
+                data.push(h);
+            });
+
+            // Output the result
+            $EXPORT.text(JSON.stringify(data));
+        });
+    </script>
+    <!-- data table -->
+    <script>
+        // Add row
+        var row = 1;
+        $(document).on("click", "#add-row", function() {
+
+            if ($(".hidden-column").hasClass("d-none")) {
+                var new_row = '<tr id="row' + row + '">  <td><select class="form-control" id="exampleFormControlSelect1"><option></option><option>Mr.</option><option>Mrs.</option><option>Miss.</option><option>Dr.</option></select></td> <td><input name="from_value' + row + '" type="text" class="form-control" /></td> <td><input name="from_value' + row + '" type="text" class="form-control" /></td><td><input name="from_value' + row + '" type="text" class="form-control" /></td><td><input name="from_value' + row + '" type="text" class="form-control" /></td><td><input name="from_value' + row + '" type="text" class="form-control" /></td><td class="hidden-column d-none"><input name="from_value' + row + '" type="text" class="form-control" /></td><td class="hidden-column d-none"><input name="from_value' + row + '" type="text" class="form-control" /></td><td class="hidden-column d-none"><input name="to_value' + row + '" type="text" class="form-control" /></td><td><div class="d-flex mt-2"><div class="mr-2 ml-2 more-border more"><i class="fa fa-ellipsis-h " data-toggle="tooltip" data-placement="top" title="Show More details" class="a-border" aria-hidden="true"></i> </div><i class="fa fa-times delete-row align-self-center"  data-toggle="tooltip" data-placement="top" title="delete" class="a-border" aria-hidden="true"></i></div></td></tr>';
+            } else {
+
+                var new_row = '<tr id="row' + row + '">  <td><select class="form-control" id="exampleFormControlSelect1"><option></option><option>Mr.</option><option>Mrs.</option><option>Miss.</option><option>Dr.</option></select></td> <td><input name="from_value' + row + '" type="text" class="form-control" /></td> <td><input name="from_value' + row + '" type="text" class="form-control" /></td><td><input name="from_value' + row + '" type="text" class="form-control" /></td><td><input name="from_value' + row + '" type="text" class="form-control" /></td><td><input name="from_value' + row + '" type="text" class="form-control" /></td><td class="hidden-column "><input name="from_value' + row + '" type="text" class="form-control" /></td><td class="hidden-column "><input name="from_value' + row + '" type="text" class="form-control" /></td><td class="hidden-column "><input name="to_value' + row + '" type="text" class="form-control" /></td> <td> <div class="d-flex mt-2"><i class="fa fa-times delete-row align-self-center" aria-hidden="true"></i>   </div></td></tr>';
+            }
+
+            $('#test-body').append(new_row);
+            row++;
+            return false;
+
+        });
+
+        // Remove criterion
+        $(document).on("click", ".delete-row", function() {
+            //  alert("deleting row#"+row);
+            if (row > 1) {
+                $(this).closest('tr').remove();
+                row--;
+            }
+            return false;
+        });
+        // more criterion
+        $(document).on("click", ".more", function() {
+
+            $('.hidden-column').removeClass("d-none");
+            $(".more").addClass("d-none");
+
+
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".close-img-1").click(function() {
+                $('.admin-card').addClass("d-none");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".input-feild-").click(function() {
+                $('.input-feild-').addClass("d-none");
+                $('.add-input').removeClass("d-none");
+            });
+        });
+    </script>
+     <script>
+        $(document).ready(function() {
+            $(".input-img2").click(function() {
+                
+                $('.admin-card').removeClass("d-none");
+            });
+        });
+    </script>
+    <script>
+
+        $(".input-img2").click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $(".admin-card").toggle();
+}); 
+$('.admin-card').click( function(e) {
+    e.stopPropagation();
+});
+$('body').click( function() {
+    $('.admin-card').hide();
+});
+$(".close-img-1").click(function(){
+  $(".admin-card").hide();
+}); 
+    </script>
+    <!-- data table -->
+</body>
+
+</html>
